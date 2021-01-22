@@ -686,20 +686,18 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader">IO Device: Watchdog Timer (WDT)</h2></td></tr>
 <tr class="memitem:a650754ede53fd1367f9f40ce9870a2d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a650754ede53fd1367f9f40ce9870a2d3">WDT_CT</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF8CUL))</td></tr>
 <tr class="separator:a650754ede53fd1367f9f40ce9870a2d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2a2bd9c74bdba1b46bd92025bd00ab6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#af2a2bd9c74bdba1b46bd92025bd00ab6">WDT_PASSWORD</a>&#160;&#160;&#160;0x47</td></tr>
-<tr class="separator:af2a2bd9c74bdba1b46bd92025bd00ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc01fe45ebae4939dd49aead845a5322"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322">NEORV32_WDT_CT_enum</a> { <br />
-&#160;&#160;<a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322a1c931a5c3d4baae95a42060bf2fca64b">WDT_CT_CLK_SEL0</a> = 0
-, <a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322ada1988eb2c079c854a263d5b378c2b54">WDT_CT_CLK_SEL1</a> = 1
-, <a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322a73cde2a27626044b7eed954ab12c1d17">WDT_CT_CLK_SEL2</a> = 2
-, <a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322a38c8053d262b4e1a897c352a60f373da">WDT_CT_EN</a> = 3
+&#160;&#160;<a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322a38c8053d262b4e1a897c352a60f373da">WDT_CT_EN</a> = 0
+, <a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322a1c931a5c3d4baae95a42060bf2fca64b">WDT_CT_CLK_SEL0</a> = 1
+, <a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322ada1988eb2c079c854a263d5b378c2b54">WDT_CT_CLK_SEL1</a> = 2
+, <a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322a73cde2a27626044b7eed954ab12c1d17">WDT_CT_CLK_SEL2</a> = 3
 , <br />
 &#160;&#160;<a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322abeddc4c699b2eb7a94a1312b43a3178d">WDT_CT_MODE</a> = 4
-, <a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322adcdd01ae9a2a79727fa55c007d28b2ac">WDT_CT_CAUSE</a> = 5
-, <a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322abd79301483aa332fa977cb6ce4ecba1c">WDT_CT_PWFAIL</a> = 6
-, <a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322ac40c79b36e069ce2ff1dbb9dfc34fa89">WDT_CT_PASSWORD_LSB</a> = 8
+, <a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322a6a926fb77c4b9ae35b5028c63fe7f2f5">WDT_CT_RCAUSE</a> = 5
+, <a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322adac45fd825e34a11012b7cb55f10cb9e">WDT_CT_RESET</a> = 6
+, <a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322a8c79e09f829d23a76e8029b18f876659">WDT_CT_FORCE</a> = 7
 , <br />
-&#160;&#160;<a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322a0b978175ff59ce1c7dc099464c6f6c67">WDT_CT_PASSWORD_MSB</a> = 15
+&#160;&#160;<a class="el" href="neorv32_8h.html#afc01fe45ebae4939dd49aead845a5322ae7d5456d35d28004f3ca53338b178704">WDT_CT_LOCK</a> = 8
 <br />
  }</td></tr>
 <tr class="separator:afc01fe45ebae4939dd49aead845a5322"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1511,21 +1509,6 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Watchdog control register (r/w) </p>
-
-</div>
-</div>
-<a id="af2a2bd9c74bdba1b46bd92025bd00ab6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2a2bd9c74bdba1b46bd92025bd00ab6">&#9670;&nbsp;</a></span>WDT_PASSWORD</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WDT_PASSWORD&#160;&#160;&#160;0x47</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Watchdog access passwort, must be set in WDT_CT bits 15:8 for every control register access </p>
 
 </div>
 </div>
@@ -2823,23 +2806,23 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>WTD control register bits </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322a1c931a5c3d4baae95a42060bf2fca64b"></a>WDT_CT_CLK_SEL0&#160;</td><td class="fielddoc"><p>WDT control register(0) (r/w): Clock prescaler select bit 0 </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322a38c8053d262b4e1a897c352a60f373da"></a>WDT_CT_EN&#160;</td><td class="fielddoc"><p>WDT control register(0) (r/w): Watchdog enable </p>
 </td></tr>
-<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322ada1988eb2c079c854a263d5b378c2b54"></a>WDT_CT_CLK_SEL1&#160;</td><td class="fielddoc"><p>WDT control register(1) (r/w): Clock prescaler select bit 1 </p>
+<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322a1c931a5c3d4baae95a42060bf2fca64b"></a>WDT_CT_CLK_SEL0&#160;</td><td class="fielddoc"><p>WDT control register(1) (r/w): Clock prescaler select bit 0 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322a73cde2a27626044b7eed954ab12c1d17"></a>WDT_CT_CLK_SEL2&#160;</td><td class="fielddoc"><p>WDT control register(2) (r/w): Clock prescaler select bit 2 </p>
+<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322ada1988eb2c079c854a263d5b378c2b54"></a>WDT_CT_CLK_SEL1&#160;</td><td class="fielddoc"><p>WDT control register(2) (r/w): Clock prescaler select bit 1 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322a38c8053d262b4e1a897c352a60f373da"></a>WDT_CT_EN&#160;</td><td class="fielddoc"><p>WDT control register(3) (r/w): Watchdog enable </p>
+<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322a73cde2a27626044b7eed954ab12c1d17"></a>WDT_CT_CLK_SEL2&#160;</td><td class="fielddoc"><p>WDT control register(3) (r/w): Clock prescaler select bit 2 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322abeddc4c699b2eb7a94a1312b43a3178d"></a>WDT_CT_MODE&#160;</td><td class="fielddoc"><p>WDT control register(4) (r/w): Watchdog mode; when 0: timeout causes interrupt; when 1: timeout causes processor reset </p>
+<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322abeddc4c699b2eb7a94a1312b43a3178d"></a>WDT_CT_MODE&#160;</td><td class="fielddoc"><p>WDT control register(4) (r/w): Watchdog mode: 0=timeout causes interrupt, 1=timeout causes processor reset </p>
 </td></tr>
-<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322adcdd01ae9a2a79727fa55c007d28b2ac"></a>WDT_CT_CAUSE&#160;</td><td class="fielddoc"><p>WDT control register(5) (r/-): Last action (reset/IRQ) cause (0: external reset, 1: watchdog timeout) </p>
+<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322a6a926fb77c4b9ae35b5028c63fe7f2f5"></a>WDT_CT_RCAUSE&#160;</td><td class="fielddoc"><p>WDT control register(5) (r/-): Cause of last system reset: 0=external reset, 1=watchdog </p>
 </td></tr>
-<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322abd79301483aa332fa977cb6ce4ecba1c"></a>WDT_CT_PWFAIL&#160;</td><td class="fielddoc"><p>WDT control register(6) (r/-): Last Watchdog action (reset/IRQ) caused by wrong password when 1 </p>
+<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322adac45fd825e34a11012b7cb55f10cb9e"></a>WDT_CT_RESET&#160;</td><td class="fielddoc"><p>WDT control register(6) (-/w): Reset WDT counter when set, auto-clears </p>
 </td></tr>
-<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322ac40c79b36e069ce2ff1dbb9dfc34fa89"></a>WDT_CT_PASSWORD_LSB&#160;</td><td class="fielddoc"><p>WDT control register(8) (-/w): First bit / position begin for watchdog access password </p>
+<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322a8c79e09f829d23a76e8029b18f876659"></a>WDT_CT_FORCE&#160;</td><td class="fielddoc"><p>WDT control register(7) (-/w): Force WDT action, auto-clears </p>
 </td></tr>
-<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322a0b978175ff59ce1c7dc099464c6f6c67"></a>WDT_CT_PASSWORD_MSB&#160;</td><td class="fielddoc"><p>WDT control register(15) (-/w): Last bit / position end for watchdog access password </p>
+<tr><td class="fieldname"><a id="afc01fe45ebae4939dd49aead845a5322ae7d5456d35d28004f3ca53338b178704"></a>WDT_CT_LOCK&#160;</td><td class="fielddoc"><p>WDT control register(8) (r/w): Lock write access to control register, clears on reset (HW or WDT) only </p>
 </td></tr>
 </table>
 
