@@ -671,15 +671,10 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader">IO Device: True Random Number Generator (TRNG)</h2></td></tr>
 <tr class="memitem:abfd8dc1811ee923d8d7ca2672304dcc4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#abfd8dc1811ee923d8d7ca2672304dcc4">TRNG_CT</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF88UL))</td></tr>
 <tr class="separator:abfd8dc1811ee923d8d7ca2672304dcc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0e9fd8a23a0c690c12357bd517c0e0d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#ad0e9fd8a23a0c690c12357bd517c0e0d">NEORV32_TRNG_CT_enum</a> { <br />
-&#160;&#160;<a class="el" href="neorv32_8h.html#ad0e9fd8a23a0c690c12357bd517c0e0dad19bc1171ef1a6000826566216ccfabe">TRNG_CT_DATA_LSB</a> = 0
+<tr class="memitem:ad0e9fd8a23a0c690c12357bd517c0e0d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#ad0e9fd8a23a0c690c12357bd517c0e0d">NEORV32_TRNG_CT_enum</a> { <a class="el" href="neorv32_8h.html#ad0e9fd8a23a0c690c12357bd517c0e0dad19bc1171ef1a6000826566216ccfabe">TRNG_CT_DATA_LSB</a> = 0
 , <a class="el" href="neorv32_8h.html#ad0e9fd8a23a0c690c12357bd517c0e0daa338d0ac44e62fea3197c1faf4e46489">TRNG_CT_DATA_MSB</a> = 7
-, <a class="el" href="neorv32_8h.html#ad0e9fd8a23a0c690c12357bd517c0e0daba8d12618deabb3243fb3e8de720efd9">TRNG_CT_VALID</a> = 15
-, <a class="el" href="neorv32_8h.html#ad0e9fd8a23a0c690c12357bd517c0e0da7fd81c666d52efb4900f88358da2e465">TRNG_CT_ERROR_0</a> = 16
-, <br />
-&#160;&#160;<a class="el" href="neorv32_8h.html#ad0e9fd8a23a0c690c12357bd517c0e0dae406965fd8865187a43b2041206a6cc8">TRNG_CT_ERROR_1</a> = 17
-, <a class="el" href="neorv32_8h.html#ad0e9fd8a23a0c690c12357bd517c0e0dab4cdfe80936f283c8e7a2449431891eb">TRNG_CT_EN</a> = 31
-<br />
+, <a class="el" href="neorv32_8h.html#ad0e9fd8a23a0c690c12357bd517c0e0dab4cdfe80936f283c8e7a2449431891eb">TRNG_CT_EN</a> = 30
+, <a class="el" href="neorv32_8h.html#ad0e9fd8a23a0c690c12357bd517c0e0daba8d12618deabb3243fb3e8de720efd9">TRNG_CT_VALID</a> = 31
  }</td></tr>
 <tr class="separator:ad0e9fd8a23a0c690c12357bd517c0e0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -1526,21 +1521,21 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>Processor clock prescalers </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73ad63d40139c50d76618cf1258cbdc0d05"></a>CLK_PRSC_2&#160;</td><td class="fielddoc"><p>CPU_CLK / 2 </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73ad63d40139c50d76618cf1258cbdc0d05"></a>CLK_PRSC_2&#160;</td><td class="fielddoc"><p>CPU_CLK (from clk_i top signal) / 2 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73a648249b3ab8c2500880c1e68b98f81d1"></a>CLK_PRSC_4&#160;</td><td class="fielddoc"><p>CPU_CLK / 4 </p>
+<tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73a648249b3ab8c2500880c1e68b98f81d1"></a>CLK_PRSC_4&#160;</td><td class="fielddoc"><p>CPU_CLK (from clk_i top signal) / 4 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73aa4e3a6a5b3cd895f63b4544f63ce22c9"></a>CLK_PRSC_8&#160;</td><td class="fielddoc"><p>CPU_CLK / 8 </p>
+<tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73aa4e3a6a5b3cd895f63b4544f63ce22c9"></a>CLK_PRSC_8&#160;</td><td class="fielddoc"><p>CPU_CLK (from clk_i top signal) / 8 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73a5990532893f2d9606e3c02aff60ca5da"></a>CLK_PRSC_64&#160;</td><td class="fielddoc"><p>CPU_CLK / 64 </p>
+<tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73a5990532893f2d9606e3c02aff60ca5da"></a>CLK_PRSC_64&#160;</td><td class="fielddoc"><p>CPU_CLK (from clk_i top signal) / 64 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73a933045a5405de55781d687315f42054e"></a>CLK_PRSC_128&#160;</td><td class="fielddoc"><p>CPU_CLK / 128 </p>
+<tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73a933045a5405de55781d687315f42054e"></a>CLK_PRSC_128&#160;</td><td class="fielddoc"><p>CPU_CLK (from clk_i top signal) / 128 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73a18aac15afd5ebd8d3a00dd6e513daf17"></a>CLK_PRSC_1024&#160;</td><td class="fielddoc"><p>CPU_CLK / 1024 </p>
+<tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73a18aac15afd5ebd8d3a00dd6e513daf17"></a>CLK_PRSC_1024&#160;</td><td class="fielddoc"><p>CPU_CLK (from clk_i top signal) / 1024 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73aa138f0cad547028d5124f89d6dcc8c79"></a>CLK_PRSC_2048&#160;</td><td class="fielddoc"><p>CPU_CLK / 2048 </p>
+<tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73aa138f0cad547028d5124f89d6dcc8c79"></a>CLK_PRSC_2048&#160;</td><td class="fielddoc"><p>CPU_CLK (from clk_i top signal) / 2048 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73a0f20c29722bf9afc478b1a286a6b7eee"></a>CLK_PRSC_4096&#160;</td><td class="fielddoc"><p>CPU_CLK / 4096 </p>
+<tr><td class="fieldname"><a id="a10022df4c223533b04d5aebe222e8b73a0f20c29722bf9afc478b1a286a6b7eee"></a>CLK_PRSC_4096&#160;</td><td class="fielddoc"><p>CPU_CLK (from clk_i top signal) / 4096 </p>
 </td></tr>
 </table>
 
@@ -2626,17 +2621,13 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>TRNG control/data register bits </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad0e9fd8a23a0c690c12357bd517c0e0dad19bc1171ef1a6000826566216ccfabe"></a>TRNG_CT_DATA_LSB&#160;</td><td class="fielddoc"><p>TRNG data/control register(0) (r/-): Random data (8-bit) LSB </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad0e9fd8a23a0c690c12357bd517c0e0dad19bc1171ef1a6000826566216ccfabe"></a>TRNG_CT_DATA_LSB&#160;</td><td class="fielddoc"><p>TRNG data/control register(0) (r/-): Random data byte LSB </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ad0e9fd8a23a0c690c12357bd517c0e0daa338d0ac44e62fea3197c1faf4e46489"></a>TRNG_CT_DATA_MSB&#160;</td><td class="fielddoc"><p>TRNG data/control register(7) (r/-): Random data (8-bit) MSB </p>
+<tr><td class="fieldname"><a id="ad0e9fd8a23a0c690c12357bd517c0e0daa338d0ac44e62fea3197c1faf4e46489"></a>TRNG_CT_DATA_MSB&#160;</td><td class="fielddoc"><p>TRNG data/control register(7) (r/-): Random data byte MSB </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ad0e9fd8a23a0c690c12357bd517c0e0daba8d12618deabb3243fb3e8de720efd9"></a>TRNG_CT_VALID&#160;</td><td class="fielddoc"><p>TRNG data/control register(15) (r/-): Random data output valid </p>
+<tr><td class="fieldname"><a id="ad0e9fd8a23a0c690c12357bd517c0e0dab4cdfe80936f283c8e7a2449431891eb"></a>TRNG_CT_EN&#160;</td><td class="fielddoc"><p>TRNG data/control register(30) (r/w): TRNG enable </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ad0e9fd8a23a0c690c12357bd517c0e0da7fd81c666d52efb4900f88358da2e465"></a>TRNG_CT_ERROR_0&#160;</td><td class="fielddoc"><p>TRNG data/control register(16) (r/-): Stuck-at-zero error </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ad0e9fd8a23a0c690c12357bd517c0e0dae406965fd8865187a43b2041206a6cc8"></a>TRNG_CT_ERROR_1&#160;</td><td class="fielddoc"><p>TRNG data/control register(17) (r/-): Stuck-at-one error </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ad0e9fd8a23a0c690c12357bd517c0e0dab4cdfe80936f283c8e7a2449431891eb"></a>TRNG_CT_EN&#160;</td><td class="fielddoc"><p>TRNG data/control register(31) (r/w): TRNG enable </p>
+<tr><td class="fieldname"><a id="ad0e9fd8a23a0c690c12357bd517c0e0daba8d12618deabb3243fb3e8de720efd9"></a>TRNG_CT_VALID&#160;</td><td class="fielddoc"><p>TRNG data/control register(31) (r/-): Random data output valid </p>
 </td></tr>
 </table>
 
