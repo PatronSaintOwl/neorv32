@@ -197,7 +197,7 @@ NEORV32 Processor Features</h3>
 <li>32-bit external bus interface, Wishbone b4 compliant (<b>WISHBONE</b>), <em>standard</em> or <em>pipelined</em> handshake/transactions mode</li>
 <li>wrapper for <b>AXI4-Lite Master Interface</b> (see <a href="#AXI4-Connectivity">AXI Connectivity</a>)</li>
 <li>PWM controller with 4 channels and 8-bit duty cycle resolution (<b>PWM</b>)</li>
-<li>GARO-based true random number generator (<b>TRNG</b>)</li>
+<li>Ring-oscillator-based true random number generator (<b>TRNG</b>)</li>
 <li>custom functions units (<b>CFU0</b> and <b>CFU1</b>) for tightly-coupled custom co-processors</li>
 <li>system configuration information memory to check hardware configuration by software (<b>SYSINFO</b>, mandatory - not <em>optional</em>)</li>
 </ul>
@@ -268,7 +268,7 @@ NEORV32 CPU Features</h3>
 <li>Machine timer interrupt <code>mti</code> (via processor's MTIME unit / external signal)</li>
 <li>Machine software interrupt <code>msi</code> (via external signal)</li>
 <li>Machine external interrupt <code>mei</code> (via external signal)</li>
-<li>Four fast interrupt requests (custom extension)</li>
+<li>Eight fast interrupt requests (custom extension)</li>
 </ul>
 </li>
 </ul>
@@ -300,7 +300,7 @@ NEORV32 CPU Features</h3>
 NEORV32-Specific CPU Extensions</h3>
 <p>The NEORV32-specific extensions are always enabled and are indicated via the <code>X</code> bit in the <code>misa</code> CSR.</p>
 <ul>
-<li>Four <em>fast interrupt</em> request channels with according control/status bits in <code>mie</code> and <code>mip</code> and custom exception codes in <code>mcause</code></li>
+<li>Eight <em>fast interrupt</em> request channels with according control/status bits in <code>mie</code> and <code>mip</code> and custom exception codes in <code>mcause</code></li>
 <li><code>mzext</code> CSR to check for implemented <code>Z*</code> CPU extensions (like <code>Zifencei</code>)</li>
 <li>All undefined/umimplemented/malformed/illegal instructions do raise an illegal instruction exception</li>
 </ul>
@@ -445,8 +445,8 @@ Top Entities</h2>
 <p>Use the top's generics to configure the system according to your needs. Each generic is initilized with the default configuration. Detailed information regarding the interface signals and configuration generics can be found in the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/NEORV32.pdf">:page_facing_up: NEORV32 data sheet</a> (pdf).</p>
 <h3><a class="anchor" id="autotoc_md19"></a>
 Using the CPU in Stand-Alone Mode</h3>
-<p>If you do not want to use the NEORV32 processor setup, you can also use the CPU in stand-alone mode and build your own system around it. The top entity of the stand-alone <b>NEORV32 CPU</b> is <a href="https://github.com/stnolting/neorv32/blob/master/rtl/core/neorv32_cpu.vhd"><code>rtl/core/neorv32_cpu.vhd</code></a>. Note that the CPU uses a proprietary interface for accessing data and instruction memory. More information can be found in the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/NEORV32.pdf">:page_facing_up: NEORV32 data sheet</a>.</p>
-<p>:warning: It is recommended to use the processor setup even if you only want to use the CPU. Simply disable all the processor-internal modules via the generics and you will get a "CPU wrapper" that provides a minimal CPU environment and an external memory interface (like AXI4). This setup also allows to further use the default bootloader and application makefiles. From this base you can start building your own processor system.</p>
+<p>If you <em>do not</em> want to use the NEORV32 processor setup, you can also use the CPU in stand-alone mode and build your own system around it. The top entity of the stand-alone <b>NEORV32 CPU</b> is <a href="https://github.com/stnolting/neorv32/blob/master/rtl/core/neorv32_cpu.vhd"><code>rtl/core/neorv32_cpu.vhd</code></a>. Note that the CPU uses a proprietary interface for accessing data and instruction memory. More information can be found in the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/NEORV32.pdf">:page_facing_up: NEORV32 data sheet</a>.</p>
+<p>:information_source: It is recommended to use the processor setup even if you only want to use the CPU. Simply disable all the processor-internal modules via the generics and you will get a "CPU wrapper" that already provides a minimal CPU environment and an external memory interface (like AXI4). This setup also allows to further use the default bootloader and software framework. From this base you can start building your own processor system.</p>
 <h3><a class="anchor" id="autotoc_md20"></a>
 Alternative Top Entities</h3>
 <p><em>Alternative top entities</em>, like the simplified <a href="#Create-a-new-Hardware-Project">"hello world" test setup</a> or CPU/Processor wrappers with resolved port signal types (i.e. <em>std_logic</em>), can be found in <a href="https://github.com/stnolting/neorv32/blob/master/rtl/top_templates"><code>rtl/top_templates</code></a>.</p>
