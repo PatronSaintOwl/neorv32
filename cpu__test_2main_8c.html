@@ -74,7 +74,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Simple CPU test program.  
+<p>CPU/Processor test program.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;<a class="el" href="neorv32_8h_source.html">neorv32.h</a>&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
@@ -92,7 +92,7 @@ Macros</h2></td></tr>
 <tr class="separator:ad4455691936f92fdd6c37566fc58ba1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25e56390f6f02913fcc69a965d7f91f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpu__test_2main_8c.html#a25e56390f6f02913fcc69a965d7f91f0">ADDR_UNALIGNED</a>&#160;&#160;&#160;0x00000002</td></tr>
 <tr class="separator:a25e56390f6f02913fcc69a965d7f91f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a577145c482d9444e298153c98f37c210"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpu__test_2main_8c.html#a577145c482d9444e298153c98f37c210">ADDR_UNREACHABLE</a>&#160;&#160;&#160;0xFFFFFF00</td></tr>
+<tr class="memitem:a577145c482d9444e298153c98f37c210"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpu__test_2main_8c.html#a577145c482d9444e298153c98f37c210">ADDR_UNREACHABLE</a>&#160;&#160;&#160;(<a class="el" href="neorv32_8h.html#a1eb0cb7fed7e154e15cb4009880a879c">IO_BASE_ADDRESS</a>-4)</td></tr>
 <tr class="separator:a577145c482d9444e298153c98f37c210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32aece76361713a064649137ee25b1a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpu__test_2main_8c.html#a32aece76361713a064649137ee25b1a4">EXT_MEM_BASE</a>&#160;&#160;&#160;0xF0000000</td></tr>
 <tr class="separator:a32aece76361713a064649137ee25b1a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,7 +134,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="separator:ad38d1de5648875f1e407246c296fb311"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Simple CPU test program. </p>
+<div class="textblock"><p>CPU/Processor test program. </p>
 <dl class="section author"><dt>Author</dt><dd>Stephan Nolting </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a25e56390f6f02913fcc69a965d7f91f0"></a>
@@ -159,7 +159,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ADDR_UNREACHABLE&#160;&#160;&#160;0xFFFFFF00</td>
+          <td class="memname">#define ADDR_UNREACHABLE&#160;&#160;&#160;(<a class="el" href="neorv32_8h.html#a1eb0cb7fed7e154e15cb4009880a879c">IO_BASE_ADDRESS</a>-4)</td>
         </tr>
       </table>
 </div><div class="memdoc">
