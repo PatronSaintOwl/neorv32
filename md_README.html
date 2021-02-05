@@ -84,7 +84,7 @@ The NEORV32 RISC-V Processor</h1>
 Overview</h2>
 <p>The NEORV32 Processor is a customizable microcontroller-like system on chip (SoC) that is based on the RISC-V-compliant NEORV32 CPU. The processor is intended as <em>ready-to-go</em> auxiliary processor within a larger SoC designs or as stand-alone custom microcontroller.</p>
 <p>:label: The project’s change log is available in the <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md">CHANGELOG.md</a> file in the root directory of this repository. To see the changes between releases visit the project's <a href="https://github.com/stnolting/neorv32/releases">release page</a>.</p>
-<p>:books: The documentation of the software framework is available online on <a href="https://stnolting.github.io/neorv32/files.html">GitHub-pages</a>.</p>
+<p>:books: The doxygen-based documentation of the software framework is available online at <a href="https://stnolting.github.io/neorv32/files.html">GitHub-pages</a>.</p>
 <p>:page_facing_up: For more detailed information take a look at the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/NEORV32.pdf">NEORV32 data sheet (pdf)</a>.</p>
 <h3><a class="anchor" id="autotoc_md2"></a>
 Key Features</h3>
@@ -116,6 +116,7 @@ Key Features</h3>
 <li>serial interfaces (SPI, TWI, UART)</li>
 <li>general purpose IO and PWM channels</li>
 <li>external bus interface (Wishbone / <a href="#AXI4-Connectivity">AXI4</a>)</li>
+<li>subsystem for custom co-processors</li>
 <li><a href="#NEORV32-Processor-Features">more ...</a></li>
 </ul>
 </li>
@@ -149,7 +150,7 @@ Design Principles</h3>
 <h3><a class="anchor" id="autotoc_md4"></a>
 Status</h3>
 <p>The processor is <a href="#FPGA-Implementation-Results">synthesizable</a> (tested on <em>real hardware</em> using Intel Quartus Prime, Xilinx Vivado and Lattice Radiant/Synplify Pro) and can successfully execute all the <a href="https://github.com/stnolting/neorv32/tree/master/sw/example">provided example programs</a> including the <a href="#CoreMark-Benchmark">CoreMark benchmark</a>.</p>
-<p>The processor passes the official <code>rv32_m/C</code>, <code>rv32_m/I</code>, <code>rv32_m/M</code>, <code>rv32_m/privilege</code> and <code>rv32_m/Zifencei</code> <a href="https://github.com/riscv/riscv-compliance">RISC-V compliance</a> tests. More information regarding the NEORV32 port of the compliance framework can be found in <a href="https://github.com/stnolting/neorv32/blob/master/riscv-compliance/README.md"><code>riscv-compliance/README.md</code></a>.</p>
+<p><b>RISC-V Compliance</b>: The processor passes the official <code>rv32_m/C</code>, <code>rv32_m/I</code>, <code>rv32_m/M</code>, <code>rv32_m/privilege</code> and <code>rv32_m/Zifencei</code> <a href="https://github.com/riscv/riscv-compliance">RISC-V compliance</a> tests. More information regarding the NEORV32 port of the compliance framework can be found in <a href="https://github.com/stnolting/neorv32/blob/master/riscv-compliance/README.md"><code>riscv-compliance/README.md</code></a>.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Project component   </th><th class="markdownTableHeadLeft">CI status    </th></tr>
@@ -167,16 +168,16 @@ To-Do / Wish List / Help Wanted</h3>
 <ul>
 <li>Use LaTeX for data sheet</li>
 <li>Further size and performance optimization</li>
-<li>Further expand associativity configuration of instruction cache (4x/8x set-associativity)</li>
-<li>Add data cache</li>
-<li>Burst mode for the external memory/bus interface</li>
+<li>Further expand associativity configuration of instruction cache (4x/8x set-associativity)?</li>
+<li>Add data cache?</li>
+<li>Burst mode for the external memory/bus interface?</li>
 <li>RISC-V <code>F</code> (using <a href="https://github.com/riscv/riscv-zfinx/blob/master/Zfinx_spec.adoc"><code>Zfinx</code></a>?) CPU extension (single-precision floating point)</li>
 <li>Add template (HW module + intrinsics skeleton) for custom instructions?</li>
-<li>Implement further RISC-V (or custom?) CPU extensions</li>
-<li>More support for FreeRTOS (like <em>all</em> traps)</li>
-<li>Port additional RTOSs (like <a href="https://github.com/zephyrproject-rtos/zephyr">Zephyr</a> or <a href="https://www.riot-os.org">RIOT</a>)</li>
-<li>Maybe port <a href="https://circuitpython.org/">CircuitPython</a> (just for fun)</li>
-<li>Add debugger (<a href="https://github.com/riscv/riscv-debug-spec">RISC-V debug spec</a>)</li>
+<li>Implement further RISC-V (or custom) CPU extensions?</li>
+<li>More support for FreeRTOS (like <em>all</em> traps)?</li>
+<li>Port additional RTOSs (like <a href="https://github.com/zephyrproject-rtos/zephyr">Zephyr</a> or <a href="https://www.riot-os.org">RIOT</a>)?</li>
+<li>Add debugger (<a href="https://github.com/riscv/riscv-debug-spec">RISC-V debug spec</a>)?</li>
+<li>Add encryption/decryption/hash accelerator (maybe <a href="https://en.wikipedia.org/wiki/XTEA">XTEA</a>)?</li>
 <li>...</li>
 <li><a href="#ContributeFeedbackQuestions">Ideas?</a></li>
 </ul>
@@ -199,8 +200,8 @@ NEORV32 Processor Features</h3>
 <li>32-bit external bus interface, Wishbone b4 compliant (<b>WISHBONE</b>), <em>standard</em> or <em>pipelined</em> handshake/transactions mode</li>
 <li>wrapper for <b>AXI4-Lite Master Interface</b> (see <a href="#AXI4-Connectivity">AXI Connectivity</a>)</li>
 <li>PWM controller with 4 channels and 8-bit duty cycle resolution (<b>PWM</b>)</li>
-<li>Ring-oscillator-based true random number generator (<b>TRNG</b>)</li>
-<li>custom functions units (<b>CFU0</b> and <b>CFU1</b>) for tightly-coupled custom co-processors</li>
+<li>ring-oscillator-based true random number generator (<b>TRNG</b>)</li>
+<li>custom functions subsystem (<b>CFS</b>) for tightly-coupled custom co-processor extensions</li>
 <li>system configuration information memory to check hardware configuration by software (<b>SYSINFO</b>, mandatory - not <em>optional</em>)</li>
 </ul>
 <h3><a class="anchor" id="autotoc_md8"></a>
@@ -226,8 +227,8 @@ Atomic memory access (&lt;tt&gt;A&lt;/tt&gt; extension)</h4>
 <h4><a class="anchor" id="autotoc_md11"></a>
 Bit manipulation instructions (&lt;tt&gt;B&lt;/tt&gt; extension)</h4>
 <ul>
-<li>:warning: RISC-V <code>B</code> extension is not officially ratified yet!</li>
-<li>Implies <code>Zbb</code> extension</li>
+<li>:warning: Extension is not officially ratified yet by the RISC-V foundation!</li>
+<li>Implies <code>Zbb</code> extension (base bit manipulation instruction set)</li>
 <li>Compatible to <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/bitmanip-draft.pdf">v0.94-draft</a> of the bit manipulation spec</li>
 <li>Support via intrisc library (see <a href="https://github.com/stnolting/neorv32/tree/master/sw/example/bit_manipulation"><code>sw/example/bit_manipulation</code></a>)</li>
 <li>Only the <code>Zbb</code> base instructions subset is supported yet</li>
@@ -370,37 +371,35 @@ NEORV32 Processor-Internal Peripherals and Memories</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">i-CACHE   </td><td class="markdownTableBodyLeft">Proc.-int. nstruction cache (default 1x4x64 bytes)   </td><td class="markdownTableBodyRight">234   </td><td class="markdownTableBodyRight">156   </td><td class="markdownTableBodyRight">8 192   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">CFU0   </td><td class="markdownTableBodyLeft">Custom functions unit 0   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-    </td></tr>
+<td class="markdownTableBodyLeft">CFS   </td><td class="markdownTableBodyLeft">Custom functions subsystem   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">CFU1   </td><td class="markdownTableBodyLeft">Custom functions unit 1   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-    </td></tr>
-<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">DMEM   </td><td class="markdownTableBodyLeft">Processor-internal data memory (default 8kB)   </td><td class="markdownTableBodyRight">6   </td><td class="markdownTableBodyRight">2   </td><td class="markdownTableBodyRight">65 536   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">GPIO   </td><td class="markdownTableBodyLeft">General purpose input/output ports   </td><td class="markdownTableBodyRight">67   </td><td class="markdownTableBodyRight">65   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">IMEM   </td><td class="markdownTableBodyLeft">Processor-internal instruction memory (default 16kb)   </td><td class="markdownTableBodyRight">6   </td><td class="markdownTableBodyRight">2   </td><td class="markdownTableBodyRight">131 072   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">MTIME   </td><td class="markdownTableBodyLeft">Machine system timer   </td><td class="markdownTableBodyRight">274   </td><td class="markdownTableBodyRight">166   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">PWM   </td><td class="markdownTableBodyLeft">Pulse-width modulation controller   </td><td class="markdownTableBodyRight">71   </td><td class="markdownTableBodyRight">69   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">SPI   </td><td class="markdownTableBodyLeft">Serial peripheral interface   </td><td class="markdownTableBodyRight">138   </td><td class="markdownTableBodyRight">124   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">SYSINFO   </td><td class="markdownTableBodyLeft">System configuration information memory   </td><td class="markdownTableBodyRight">11   </td><td class="markdownTableBodyRight">10   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">TRNG   </td><td class="markdownTableBodyLeft">True random number generator   </td><td class="markdownTableBodyRight">132   </td><td class="markdownTableBodyRight">105   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">TWI   </td><td class="markdownTableBodyLeft">Two-wire interface   </td><td class="markdownTableBodyRight">77   </td><td class="markdownTableBodyRight">46   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">UART   </td><td class="markdownTableBodyLeft">Universal asynchronous receiver/transmitter   </td><td class="markdownTableBodyRight">176   </td><td class="markdownTableBodyRight">132   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">WDT   </td><td class="markdownTableBodyLeft">Watchdog timer   </td><td class="markdownTableBodyRight">60   </td><td class="markdownTableBodyRight">45   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
+<td class="markdownTableBodyLeft">UART   </td><td class="markdownTableBodyLeft">Universal asynchronous receiver/transmitter   </td><td class="markdownTableBodyRight">176   </td><td class="markdownTableBodyRight">132   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">WDT   </td><td class="markdownTableBodyLeft">Watchdog timer   </td><td class="markdownTableBodyRight">60   </td><td class="markdownTableBodyRight">45   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">WISHBONE   </td><td class="markdownTableBodyLeft">External memory interface   </td><td class="markdownTableBodyRight">129   </td><td class="markdownTableBodyRight">104   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0   </td></tr>
 </table>
 <h3><a class="anchor" id="autotoc_md26"></a>
 NEORV32 Processor - Exemplary FPGA Setups</h3>
-<p>Exemplary processor implementation results for different FPGA platforms. The processor setup uses <em>the default peripheral configuration</em> (like no <em>CFUs</em> and no <em>TRNG</em>), no external memory interface and only internal instruction and data memories. IMEM uses 16kB and DMEM uses 8kB memory space. The setup's top entity connects most of the processor's <a href="https://github.com/stnolting/neorv32/blob/master/rtl/core/neorv32_top.vhd">top entity</a> signals to FPGA pins - except for the Wishbone bus and the interrupt signals. The "default" strategy of each toolchain is used.</p>
+<p>Exemplary processor implementation results for different FPGA platforms. The processor setup uses <em>the default peripheral configuration</em> (like no <em>CFS</em> and no <em>TRNG</em>), no external memory interface and only internal instruction and data memories. IMEM uses 16kB and DMEM uses 8kB memory space. The setup's top entity connects most of the processor's <a href="https://github.com/stnolting/neorv32/blob/master/rtl/core/neorv32_top.vhd">top entity</a> signals to FPGA pins - except for the Wishbone bus and the interrupt signals. The "default" strategy of each toolchain is used.</p>
 <p>Results generated for hardware version <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md"><code>1.4.9.0</code></a>.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
