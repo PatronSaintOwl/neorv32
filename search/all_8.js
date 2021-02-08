@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['hexstr_5fto_5fuint_421',['hexstr_to_uint',['../demo__twi_2main_8c.html#a6124b6aab814063436b4f4836bc2d9f4',1,'hexstr_to_uint(char *buffer, uint8_t length):&#160;main.c'],['../hex__viewer_2main_8c.html#a6124b6aab814063436b4f4836bc2d9f4',1,'hexstr_to_uint(char *buffer, uint8_t length):&#160;main.c']]],
+  ['hexstr_5fto_5fuint_421',['hexstr_to_uint',['../demo__twi_2main_8c.html#a6124b6aab814063436b4f4836bc2d9f4',1,'hexstr_to_uint(char *buffer, uint8_t length):&#160;main.c'],['../hex__viewer_2main_8c.html#a6124b6aab814063436b4f4836bc2d9f4',1,'hexstr_to_uint(char *buffer, uint8_t length):&#160;main.c'],['../demo__nco_2main_8c.html#a6124b6aab814063436b4f4836bc2d9f4',1,'hexstr_to_uint(char *buffer, uint8_t length):&#160;main.c']]],
   ['hpmcnt_5fevent_5fbranch_422',['HPMCNT_EVENT_BRANCH',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea9e1e2b50352b2555e9c64e76776919a6',1,'neorv32.h']]],
   ['hpmcnt_5fevent_5fcir_423',['HPMCNT_EVENT_CIR',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfead2dcce5ec6a91b42f6cd001a9ec1c009',1,'neorv32.h']]],
   ['hpmcnt_5fevent_5fcy_424',['HPMCNT_EVENT_CY',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea2b683572525adc02ce0910031cfea914',1,'neorv32.h']]],
